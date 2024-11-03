@@ -1,8 +1,8 @@
-# Your Name Here
+# Jaxson Viergets
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# Submission Date 11/3/2024
+# Lab 07
+# Lab Section: 12
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -18,9 +18,17 @@
 # You will continue to prompt the user until a proper integer value is entered
 
 factorial = 1
+factorial = int(input(f'what number would you like to see the factorial of?'))
+temp = factorial
+while True:
+    if temp >= 1:
+        while temp > 1:
+            factorial *= temp -1
+            temp -= 1
+    
+    break
 
 print(f"The result of the factorial based on the given bound is {factorial}")
-
 print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
 # Sum all inputs. When the user enters 'exit' (regardless of casing) end the loop
@@ -38,7 +46,21 @@ print("*"*75)
 # The sum should start at 0 
 
 num_sum = 0 
-
+numy = 0
+while True:
+    numy = input(f'yo what number do yall want added in this thang')
+    if numy.isdigit():
+        numy = int(numy)
+        num_sum += numy
+        print(num_sum)
+    elif numy[0] == '-' and numy[1:].isdigit():
+        numy = int(numy)
+        num_sum += numy
+        print(num_sum)
+    elif numy.lower() == "exit":
+        break
+    else:
+        print('try again buddddd!')
 print(f"Your final sum is {num_sum}")
 
 print("*"*75)
@@ -58,5 +80,33 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
+mathes = []
+while True:
+    calc = input(f'maths?')
+    calc = calc.replace(" ", "")
+    for cal in calc:
+        if cal in ("+","-","/","*","%"):
+            mathes = calc.split(cal)
+            mathes.append(cal)
+    print(mathes)
 
-        
+    if calc.lower() == "exit":
+        break
+
+    if mathes[0].isdigit() and mathes[1].isdigit():
+        num1 = int(mathes[0])
+        num2 = int(mathes[1])
+        if mathes[2] == "+":
+            print(f'{num1+num2}')
+        elif mathes[2] == "-":
+            print(f'{num1-num2}')
+        elif mathes[2] == "/":
+            if num2 > 0:
+                print(f'{num1/num2}')
+            else:
+                print('invalid')
+        elif mathes[2] == "*":
+            print(f'{num1*num2}')
+        elif mathes[2] == "%":
+            print(f'{num1%num2}')
+    
